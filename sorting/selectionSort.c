@@ -17,7 +17,7 @@ int findMax(int* input, int num)
     return max_index;
 }
 
-void swap(int *a, int *b)
+void swap(int* a, int* b)
 {
     int tmp;
     tmp = *a;
@@ -41,7 +41,8 @@ void selectionSort(int* input, int num) /* O(n^2) */
 
 void printArray(int *input, int num)
 {
-    for(int i = 0; i < num; i++)
+    int i = 0;
+    for(i = 0; i < num; i++)
     {
         printf("%d ", input[i]);
     }
