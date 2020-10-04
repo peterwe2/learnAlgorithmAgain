@@ -17,25 +17,24 @@ int binarySearch(int* input, int num, int target)
     int tail = num - 1;
     int mid = ((unsigned)(head + tail)) >> 1; /* prevent overflow */
 
-    while(input[mid] != target)
+    while(head <= tail)
     {
-        if(head >= tail)
-        {
-            printf("not in this array!\n");
-            return -1;
-        }
         if(input[mid] < target)
         {
             head = mid + 1;
         }
-        else
+        else if(target < input[mid])
         {
             tail = mid - 1;
         }
+        else
+        {
+            return mid;
+        }
         mid = ((unsigned)(head + tail)) >> 1;
-
     }
-    return mid;
+    printf("not in this array!\n");
+    return -1;
 }
 
 int main(void)
@@ -44,7 +43,7 @@ int main(void)
     int target_index = 0;
 
     printArray(input, 9);
-    target_index = binarySearch(input, 9, 13);
+    target_index = binarySearch(input, 9, 9);
     printf("target_index: %d\n", target_index);
 
     return 0;
